@@ -63,3 +63,62 @@ Type error: Property 'className' does not exist on type '{ src: string; width: n
 [debug] [2023-12-18T03:33:50.027Z] Error: ENOENT: no such file or directory, open '/Users/ramadwiyantara/Development/Pribadi/my-portfolio/.next/export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2023-12-18T03:37:51.857Z] ----------------------------------------------------------------------
+[debug] [2023-12-18T03:37:51.858Z] Command:       /usr/local/bin/firebase /Users/ramadwiyantara/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2023-12-18T03:37:51.859Z] CLI Version:   13.0.2
+[debug] [2023-12-18T03:37:51.860Z] Platform:      darwin
+[debug] [2023-12-18T03:37:51.860Z] Node Version:  v18.5.0
+[debug] [2023-12-18T03:37:51.862Z] Time:          Mon Dec 18 2023 10:37:51 GMT+0700 (Western Indonesia Time)
+[debug] [2023-12-18T03:37:51.862Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-18T03:37:51.970Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-18T03:37:51.972Z] > authorizing via signed-in user (ramadwiyantara1@gmail.com)
+[debug] [2023-12-18T03:37:51.973Z] [iam] checking project rama-dwiyantara for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-12-18T03:37:51.975Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/rama-dwiyantara:testIamPermissions [none]
+[debug] [2023-12-18T03:37:51.976Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/rama-dwiyantara:testIamPermissions x-goog-quota-user=projects/rama-dwiyantara
+[debug] [2023-12-18T03:37:51.977Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rama-dwiyantara:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-18T03:37:53.149Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/rama-dwiyantara:testIamPermissions 200
+[debug] [2023-12-18T03:37:53.152Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/rama-dwiyantara:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-12-18T03:37:53.157Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/rama-dwiyantara [none]
+[debug] [2023-12-18T03:37:53.530Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/rama-dwiyantara 200
+[debug] [2023-12-18T03:37:53.532Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/rama-dwiyantara {"projectId":"rama-dwiyantara","projectNumber":"320252845703","displayName":"Rama Dwiyantara","name":"projects/rama-dwiyantara","resources":{"hostingSite":"rama-dwiyantara"},"state":"ACTIVE","etag":"1_1877003d-d11f-4b03-b1eb-9bf17439eab5"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2023-12-18T03:38:03.360Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/rama-dwiyantara/sites/rama-dwiyantara [none]
+[debug] [2023-12-18T03:38:04.153Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/rama-dwiyantara/sites/rama-dwiyantara 200
+[debug] [2023-12-18T03:38:04.155Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/rama-dwiyantara/sites/rama-dwiyantara {"name":"projects/rama-dwiyantara/sites/rama-dwiyantara","defaultUrl":"https://rama-dwiyantara.web.app","type":"DEFAULT_SITE"}
+[info]    ▲ Next.js 14.0.3
+
+[info] 
+   Creating an optimized production build ...
+
+[info] (node:8493) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `firebase --trace-warnings ...` to show where the warning was created)
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] Failed to compile.
+
+
+[info] ./src/app/section/resume/components/education.tsx:1:20
+Type error: Parameter 'props' implicitly has an 'any' type.
+
+> 1 | function Education(props) {
+    |                    ^
+  2 |   return (
+  3 |     <>
+  4 |       <div className='p-4'>
+
+[debug] [2023-12-18T03:38:31.307Z] Error: ENOENT: no such file or directory, open '/Users/ramadwiyantara/Development/Pribadi/my-portfolio/.next/export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

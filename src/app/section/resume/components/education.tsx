@@ -1,4 +1,4 @@
-function Education(props) {
+function Education(props: any) {
   return (
     <>
       <div className='p-4'>
@@ -7,7 +7,7 @@ function Education(props) {
 
       <div className='ml-8 mt-8'>
         <ol className='relative border-s border-gray-200 dark:border-gray-700'>
-          {props.education.map((item) => {
+          {props.education.map((item: any) => {
             return (
               <li className='mb-10 ms-10' key={item}>
                 <span className='absolute -start-3 mt-4 flex h-6 w-6 items-center justify-center rounded-full bg-red-100 ring-8 ring-white dark:bg-blue-900 dark:ring-white'>

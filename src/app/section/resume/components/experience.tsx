@@ -1,6 +1,6 @@
 import Timeline from '../../../components/timeline';
 
-function Experience(props) {
+function Experience(props: any) {
   return (
     <div className='p-4'>
       <h3 className='dark: mb-2 text-2xl font-bold text-white'>Experience</h3>
