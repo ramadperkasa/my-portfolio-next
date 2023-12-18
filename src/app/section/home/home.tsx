@@ -87,7 +87,6 @@ function Home() {
                     src={portfolio.image.src}
                     width={portfolio.image.width}
                     height={portfolio.image.height}
-                    className={portfolio.image.className}
                     alt={portfolio.image.alt}
                   />
                 </div>
