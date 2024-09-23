@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import ScreenSize from '../../../../utils/screen-size';
 
 function Skill() {
   const icons = [
@@ -174,28 +176,34 @@ function Skill() {
     },
   ];
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(ScreenSize.isMobile());
+  }, []);
+
   return (
     <>
-      <div className='p-4'>
-        <h3 className='dark: mb-2 text-2xl  font-bold text-white'>Skill</h3>
+      <div className="p-4">
+        <h3 className="dark: mb-2 text-2xl  font-bold text-white">Skill</h3>
       </div>
 
-      <div className=''>
-        <div className='grid grid-cols-6 gap-4'>
+      <div className="">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
           {icons.map((item) => {
             return (
               <div
-                className='align-center flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md bg-[#292b2f] p-2 py-8 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80'
+                className="align-center flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md bg-[#292b2f] p-2 py-8 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80"
                 key={item.id}
               >
                 <Image
                   src={item.icon}
-                  width={50}
-                  height={50}
+                  width={isMobile ? 30 : 50}
+                  height={isMobile ? 30 : 50}
                   alt={item.name}
-                  className='object-contain'
+                  className="object-contain"
                 />
-                <span className='pt-2 text-white'>{item.name}</span>
+                <span className="pt-2 w-full text-center text-white text-xs md:text-base">{item.name}</span>
               </div>
             );
           })}

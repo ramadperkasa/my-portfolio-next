@@ -214,10 +214,10 @@ function Portfolio() {
   ];
 
   return (
-    <div className='px-12 pt-20'>
-      <h1 className='text-4xl font-bold text-white'>Portfolio</h1>
+    <div className="px-6 md:px-12 pt-20">
+      <h1 className="text-4xl font-bold text-white">Portfolio</h1>
 
-      <div className='mt-10 grid grid-cols-2 gap-10'>
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         {data.map((item) => {
           return <CardPortfolio key={item.title} {...item} />;
         })}

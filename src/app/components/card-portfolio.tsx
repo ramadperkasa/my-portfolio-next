@@ -157,45 +157,46 @@ function CardPortfolio(props: any) {
   ];
 
   return (
-    <Link key={title} href={link ?? '#'} target='_blank' className='h-full'>
-      <div className='h-full cursor-pointer rounded-lg bg-[#1E2023] p-12 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80 '>
-        <div className='flex flex-col gap-5'>
-          <div className='flex'>
+    <Link key={title} href={link ?? '#'} target="_blank" className="h-full">
+      <div
+        className="h-full cursor-pointer rounded-lg bg-[#1E2023] p-12 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80 ">
+        <div className="flex flex-col gap-5">
+          <div className="flex">
             <Image
               src={image}
               alt={title}
               width={600}
               height={450}
-              className='h-[420px] w-full rounded-lg object-contain'
+              className="h-auto md:h-[420px] w-full rounded-lg object-contain"
             />
           </div>
-          <h1 className='text-2xl font-bold text-white'>{title} </h1>
+          <h1 className="text-base md:text-2xl font-bold text-white">{title} </h1>
 
           <div>
-            <span className='text-base font-semibold text-white'>{period}</span>
+            <span className="text-xs md:text-base font-semibold text-white">{period}</span>
           </div>
 
-          <div className='flex flex-col gap-2'>
-            <span className='text-base font-semibold text-white'>
+          <div className="flex flex-col gap-2">
+            <span className="text-sm md:text-base font-semibold text-white">
               {associated}
             </span>
           </div>
 
-          <div className='inline-flex h-full gap-2'>
+          <div className="grid grid-cols-3 md:grid-cols-7 h-full gap-2">
             {tech.map((item: any) => {
               return (
                 <div
                   key={item.title}
-                  className='align-center flex h-auto w-[50px] cursor-pointer flex-col items-center justify-center rounded-md bg-[#292b2f] p-2 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80'
+                  className="align-center w-full flex h-auto w-[50px] cursor-pointer flex-col items-center justify-center rounded-md bg-[#292b2f] p-2 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80"
                 >
                   <Image
                     src={icons.find((i) => i.id === item)?.icon ?? ''}
                     alt={item.title}
                     width={25}
                     height={25}
-                    className='text-center'
+                    className="text-center"
                   />
-                  <span className='mt-1 text-center text-[0.4rem] text-xs'>
+                  <span className="mt-1 text-center text-[0.4rem] text-xs">
                     {icons.find((i) => i.id === item)?.name ?? ''}
                   </span>
                 </div>
@@ -203,7 +204,7 @@ function CardPortfolio(props: any) {
             })}
           </div>
 
-          <p className='text-justify text-gray-400'>{description}</p>
+          <p className="text-xs md:text-base text-justify text-gray-400">{description}</p>
         </div>
       </div>
     </Link>

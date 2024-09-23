@@ -214,22 +214,22 @@ function Portfolio() {
     },
   ];
   return (
-    <div className='w-screen' id='portfolio'>
-      <div className='mx-auto my-16 max-w-screen-2xl px-12'>
-        <div className='flex w-full flex-col items-center justify-center gap-2'>
-          <span className='text-2xl font-bold text-primary'>
+    <div className="w-screen" id="portfolio">
+      <div className="mx-auto my-16 max-w-screen-2xl px-6 md:px-12">
+        <div className="flex w-full flex-col items-center justify-center gap-2">
+          <span className="text-base md:text-2xl font-bold text-primary">
             My project, crafted with love.
           </span>
-          <h1 className='text-5xl font-extrabold text-white'>Portfolio</h1>
+          <h1 className="text-5xl font-extrabold text-white">Portfolio</h1>
         </div>
 
-        <div className='mt-12 grid h-full grid-cols-2 gap-12'>
+        <div className="mt-12 grid h-full grid-cols-1 md:grid-cols-2 gap-12">
           {data.splice(0, 4).map((item) => {
             return <CardPortfolio key={item.title} {...item} />;
           })}
         </div>
 
-        <div className='mt-12 flex w-full'>
+        <div className="mt-12 flex w-full">
           <ButtonMore />
         </div>
       </div>

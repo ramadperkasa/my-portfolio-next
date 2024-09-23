@@ -34,37 +34,36 @@ function Feature() {
     },
   ];
   return (
-    <>
-      <div className='w-screen' id='feature'>
-        <div className=' mx-auto my-16 max-w-screen-2xl px-12'>
-          <div className='flex flex-col gap-2'>
-            <span className='text-2xl font-bold text-primary'>Feature</span>
-            <h1 className='text-5xl font-extrabold text-white'>
-              What Can I Do
-            </h1>
-          </div>
 
-          <div className='mt-12 grid grid-cols-3 gap-12'>
-            {data.map((item, i) => (
-              <div
-                key={i}
-                className='max-w-sm rounded-lg   bg-[#1E2023] px-10 py-12 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80'
-              >
-                <div className='flex flex-col gap-5'>
-                  <div className='flex'>
-                    <Image src={item.icons} alt='icon' width={75} height={75} />
-                  </div>
-                  <h1 className='text-2xl font-bold text-white'>
-                    {item.title}
-                  </h1>
-                  <p className='text-justify text-gray-400'>{item.desc}</p>
+    <div className="w-full" id="feature">
+      <div className=" mx-auto my-16 max-w-screen-2xl px-6 md:px-12">
+        <div className="flex flex-col gap-2">
+          <span className="text-xl md:text-2xl font-bold text-primary">Feature</span>
+          <h1 className="text-2xl md:text-5xl font-extrabold text-white">
+            What Can I Do
+          </h1>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-12">
+          {data.map((item, i) => (
+            <div
+              key={i}
+              className="max-w-sm rounded-lg   bg-[#1E2023] px-10 py-12 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80"
+            >
+              <div className="flex flex-col gap-5">
+                <div className="flex">
+                  <Image src={item.icons} alt="icon" width={75} height={75} />
                 </div>
+                <h1 className="text-xl md:text-2xl font-bold text-white">
+                  {item.title}
+                </h1>
+                <p className="text-sm md:text-base text-justify text-gray-400">{item.desc}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -11,17 +11,17 @@ const NavbarMenu: React.FC<{
 }> = ({ id, title, link, onSelected, isActive, icon }) => {
   const Icon = () => <div dangerouslySetInnerHTML={{ __html: icon }} />;
   return (
-    <li>
+    <li className={
+      `align-center mx-5 rounded px-3 py-2 text-lg md:bg-transparent md:p-0` +
+      (isActive
+        ? ' bg-primary md:text-primary font-bold text-white'
+        : ' md:hover:text-primary')
+    }>
       <Link
         onClick={() => onSelected(id)}
         href={link ? link : '#'}
-        className={
-          `align-center mx-5 inline-flex items-center gap-2 rounded px-3 py-2 text-lg md:bg-transparent md:p-0` +
-          (isActive
-            ? ' bg-primary md:text-primary font-bold text-white'
-            : ' md:hover:text-primary')
-        }
-        aria-current='page'
+        className="inline-flex items-center gap-2"
+        aria-current="page"
       >
         <Icon />
         {title}

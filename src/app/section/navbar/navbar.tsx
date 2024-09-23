@@ -1,9 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavbarMenu from './components/navbarMenu';
 import NavbarGettingStarted from './components/navbarGettingStarted';
+import Link from 'next/link';
+
+import Image from 'next/image';
 
 function Navbar() {
   const [menu, setMenu] = useState('home');
@@ -76,37 +79,71 @@ function Navbar() {
     },
   ];
 
+  useEffect(() => {
+    const targetId = 'home';
+    const targetElement = document.getElementById(targetId);
+
+    const checkScroll = () => {
+      const elementTop =
+        targetElement.getBoundingClientRect().top + window.scrollY;
+
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      const offset = 100;
+
+      if (scrollPosition >= elementTop - offset) {
+        console.log(`You have scrolled to ${targetId}`);
+
+        window.removeEventListener('scroll', checkScroll);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+  }, []);
+
   return (
-    <>
-      <nav className='fixed start-0 top-0 z-30 w-full border-b border-gray-700 bg-[#222429] dark:border-gray-600'>
-        <div className='mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4'>
-          <div className='flex items-center space-x-3 rtl:space-x-reverse'></div>
-          <NavbarGettingStarted />
-          <div
-            className='hidden w-full items-center justify-between md:order-1 md:flex md:w-auto'
-            id='navbar-sticky'
+    <nav className='fixed start-0 top-0 z-30 w-full border-b border-gray-700 bg-[#222429] dark:border-gray-600'>
+      <div className='flex w-screen max-w-screen-xl flex-wrap items-center justify-between p-4'>
+        <div className='flex items-center space-x-3 rtl:space-x-reverse'>
+          <Link
+            href='/#home'
+            onClick={() => {
+              setMenu('home');
+            }}
           >
-            <ul className='mt-4 flex flex-col rounded-lg border border-gray-700  p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 md:dark:bg-gray-900'>
-              {listMenu.map((item) => {
-                return (
-                  <NavbarMenu
-                    id={item.id}
-                    title={item.title}
-                    link={item.link}
-                    key={item.id}
-                    icon={item.icon}
-                    isActive={menu === item.id}
-                    onSelected={(val: string) => {
-                      setMenu(val);
-                    }}
-                  ></NavbarMenu>
-                );
-              })}
-            </ul>
-          </div>
+            <Image
+              src='/picture/logo/logo-rama-white.png'
+              width={50}
+              height={50}
+              alt='Logo Rama Dwiyantara Perkasa'
+            />
+          </Link>
         </div>
-      </nav>
-    </>
+        <NavbarGettingStarted />
+        <div
+          className='hidden w-full items-center justify-between md:order-1 md:flex md:w-auto'
+          id='navbar-sticky'
+        >
+          <ul className='mt-4 flex flex-col rounded-lg border border-gray-700  p-4 font-medium rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 md:dark:bg-gray-900'>
+            {listMenu.map((item) => {
+              return (
+                <NavbarMenu
+                  id={item.id}
+                  title={item.title}
+                  link={item.link}
+                  key={item.id}
+                  icon={item.icon}
+                  isActive={menu === item.id}
+                  onSelected={(val: string) => {
+                    setMenu(val);
+                  }}
+                ></NavbarMenu>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

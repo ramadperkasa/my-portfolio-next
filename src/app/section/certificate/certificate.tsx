@@ -250,100 +250,101 @@ function Certificate() {
   ];
 
   return (
-    <>
-      <div className='w-screen' id='certificate'>
-        <div className='mx-auto my-16 max-w-screen-2xl px-12'>
-          <div className='flex w-full flex-col items-center justify-center gap-2'>
-            <span className='text-2xl font-bold text-primary'>
+
+    <div className="w-screen" id="certificate">
+      <div className="mx-auto my-16 max-w-screen-2xl px-6 md:px-12">
+        <div className="flex w-full flex-col items-center justify-center gap-2">
+            <span className="text-2xl font-bold text-primary">
               I Love Learning.
             </span>
-            <h1 className='text-5xl font-extrabold text-white'>Certificate</h1>
-          </div>
+          <h1 className="text-5xl font-extrabold text-white">Certificate</h1>
+        </div>
 
-          <div className='mt-8'>
-            <div className='sm:hidden'>
-              <label htmlFor='tabs' className='sr-only'>
-                Select a tab
-              </label>
-              <select
-                id='tabs'
-                className='block w-full rounded-lg border bg-[#1E2023] p-2.5 text-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500'
-                defaultValue={tab}
-                onChange={(e) => setTab(e.target.value)}
-              >
-                {tabs.map((item) => {
-                  return (
-                    <option key={item.id} value={item.id}>
-                      {item.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
-            <ul className='hidden rounded-lg text-center text-sm font-medium text-gray-500 shadow dark:divide-gray-700 dark:text-gray-400 sm:flex'>
+        <div className="mt-8">
+          <div className="sm:hidden">
+            <label htmlFor="tabs" className="sr-only">
+              Select a tab
+            </label>
+            <select
+              id="tabs"
+              className="block w-full rounded-lg border bg-[#1E2023] p-2.5 text-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+              defaultValue={tab}
+              onChange={(e) => setTab(e.target.value)}
+            >
               {tabs.map((item) => {
                 return (
-                  <li
-                    key={item.id}
-                    className={
-                      `flex-1 cursor-pointer px-6 py-4` +
-                      (tab === item.id
-                        ? ' border-b-2 border-primary text-primary'
-                        : ' hover:text-primary')
-                    }
-                    onClick={() => setTab(item.id)}
-                  >
+                  <option key={item.id} value={item.id}>
                     {item.name}
-                  </li>
+                  </option>
                 );
               })}
-            </ul>
+            </select>
           </div>
-
-          <div className='mt-12 grid w-full grid-cols-3 justify-items-center gap-8'>
-            {data
-              .filter((item) => item.group === tab)
-              .map((item) => (
-                <Link
-                  href={item.link ? item.link : '#'}
-                  target='_blank'
-                  rel='noreferrer noopener'
-                  className='max-w-sm rounded-lg bg-[#1E2023] p-8 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80'
-                  key={item.title}
+          <ul
+            className="hidden rounded-lg text-center text-sm font-medium text-gray-500 shadow dark:divide-gray-700 dark:text-gray-400 sm:flex">
+            {tabs.map((item) => {
+              return (
+                <li
+                  key={item.id}
+                  className={
+                    `flex-1 cursor-pointer px-6 py-4` +
+                    (tab === item.id
+                      ? ' border-b-2 border-primary text-primary'
+                      : ' hover:text-primary')
+                  }
+                  onClick={() => setTab(item.id)}
                 >
-                  <div className='flex flex-col gap-5'>
-                    <div className='flex self-center'>
-                      <Image
-                        src={
-                          item.image
-                            ? item.image
-                            : '/picture/certificates/21-07-Layer_6.png'
-                        }
-                        alt={item.title}
-                        width={300}
-                        height={300}
-                      />
+                  {item.name}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div className="mt-12 grid w-full grid-cols-1 md:grid-cols-3 justify-items-center gap-8">
+          {data
+            .filter((item) => item.group === tab)
+            .map((item) => (
+              <Link
+                href={item.link ? item.link : '#'}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="max-w-sm rounded-lg bg-[#1E2023] p-8 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80"
+                key={item.title}
+              >
+                <div className="flex flex-col gap-5">
+                  <div className="flex self-center">
+                    <Image
+                      src={
+                        item.image
+                          ? item.image
+                          : '/picture/certificates/21-07-Layer_6.png'
+                      }
+                      alt={item.title}
+                      width={300}
+                      height={300}
+                    />
+                  </div>
+                  <h1 className="text-justify text-base md:text-xl font-bold text-white">
+                    {item.title}
+                  </h1>
+                  <div className="align-center grid w-full grid-cols-2 justify-center">
+                    <div className="flex flex-col gap-2">
+                      <span className="text-gray-400 text-xs md:text-base">Platform</span>
+                      <span className="text-white text-xs md:text-base">{item.platform}</span>
                     </div>
-                    <h1 className='text-justify text-xl font-bold text-white'>
-                      {item.title}
-                    </h1>
-                    <div className='align-center grid w-full grid-cols-2 justify-center'>
-                      <div className='flex flex-col gap-2'>
-                        <span className='text-gray-400'>Platform</span>
-                        <span className='text-white'>{item.platform}</span>
-                      </div>
-                      <div className='flex flex-col gap-2'>
-                        <span className='text-gray-400'>Issued</span>
-                        <span className='text-white'>{item.issued}</span>
-                      </div>
+                    <div className="flex flex-col gap-2">
+                      <span className="text-gray-400 text-xs md:text-base">Issued</span>
+                      <span className="text-white text-xs md:text-base">{item.issued}</span>
                     </div>
                   </div>
-                </Link>
-              ))}
-          </div>
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
-    </>
+    </div>
+
   );
 }
 
