@@ -83,6 +83,11 @@ function Navbar() {
     const targetId = 'home';
     const targetElement = document.getElementById(targetId);
 
+    if (!targetElement) {
+      console.error(`Element with ID ${targetId} not found.`);
+      return;
+    }
+
     const checkScroll = () => {
       const elementTop =
         targetElement.getBoundingClientRect().top + window.scrollY;
