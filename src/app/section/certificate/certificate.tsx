@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackCertificateClick } from '../../../utils/gtm-events';
 
 import * as React from 'react';
 import { useState } from 'react';
@@ -311,6 +312,7 @@ function Certificate() {
                 rel="noreferrer noopener"
                 className="max-w-sm rounded-lg bg-[#1E2023] p-8 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80"
                 key={item.title}
+                onClick={() => trackCertificateClick(item.title)}
               >
                 <div className="flex flex-col gap-5">
                   <div className="flex self-center">

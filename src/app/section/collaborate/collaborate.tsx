@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { trackEmailClick, trackWhatsAppClick } from '../../../utils/gtm-events';
 
 function Collaborate() {
   return (
@@ -17,6 +20,7 @@ function Collaborate() {
               className=" inline-flex items-center gap-2"
               target="_blank"
               rel="noreferrer"
+              onClick={() => trackEmailClick('ramadwiyantara1@gmail.com')}
             >
               <Image
                 src="/picture/email.png"
@@ -31,6 +35,7 @@ function Collaborate() {
               className=" inline-flex items-center gap-2"
               target="_blank"
               rel="noreferrer noopener"
+              onClick={() => trackWhatsAppClick('+62 889 7175 3162')}
             >
               <Image
                 src="/picture/phone.png"

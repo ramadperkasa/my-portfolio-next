@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import Navbar from './section/navbar/navbar';
+import { GoogleTagManager, GoogleTagManagerNoScript } from './components/GoogleTagManager';
 // Flowbite
 import { useEffect } from 'react';
 import { initFlowbite } from 'flowbite';
@@ -31,6 +32,8 @@ export default function RootLayout({
         <title>Rama Dwiyantara Perkasa</title>
       </head>
       <body className={inter.className}>
+        <GoogleTagManager />
+        <GoogleTagManagerNoScript />
         <main>
           <Navbar />
           <div className='mx-auto h-full w-full'>

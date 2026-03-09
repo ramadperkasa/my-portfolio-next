@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { trackMenuClick } from '../../../../utils/gtm-events';
 
 const NavbarMenu: React.FC<{
   id: string;
@@ -10,6 +11,12 @@ const NavbarMenu: React.FC<{
   icon: string;
 }> = ({ id, title, link, onSelected, isActive, icon }) => {
   const Icon = () => <div dangerouslySetInnerHTML={{ __html: icon }} />;
+  
+  const handleClick = () => {
+    onSelected(id);
+    trackMenuClick(title);
+  };
+
   return (
     <li className={
       `align-center mx-5 rounded px-3 py-2 text-lg md:bg-transparent md:p-0` +
@@ -18,7 +25,7 @@ const NavbarMenu: React.FC<{
         : ' md:hover:text-primary')
     }>
       <Link
-        onClick={() => onSelected(id)}
+        onClick={handleClick}
         href={link ? link : '#'}
         className="inline-flex items-center gap-2"
         aria-current="page"

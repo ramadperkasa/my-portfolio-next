@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import ScreenSize from '../../../utils/screen-size';
+import { trackSocialClick } from '../../../utils/gtm-events';
 import { useEffect, useState } from 'react';
 
 function Home() {
@@ -108,6 +109,7 @@ function Home() {
                       key={item.icon}
                       target='_blank'
                       rel='noreferrer'
+                      onClick={() => trackSocialClick(item.alt, item.name)}
                       className='flex w-96 cursor-pointer content-center gap-2 rounded-xl bg-black/80 p-3 font-bold text-white/90 duration-300 hover:-translate-y-1 hover:bg-black'
                     >
                       <Image
@@ -234,6 +236,7 @@ function Home() {
                 href={item.link}
                 key={item.icon}
                 target='_blank'
+                onClick={() => trackSocialClick(item.alt, item.name)}
                 className='flex w-auto cursor-pointer content-center gap-2 rounded-xl bg-black/80 p-3 font-bold text-white/90 duration-300 hover:-translate-y-1 hover:bg-black md:w-80'
               >
                 <Image

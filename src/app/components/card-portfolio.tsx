@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { trackPortfolioClick } from '../../utils/gtm-events';
 
 function CardPortfolio(props: any) {
   const {
@@ -157,7 +160,13 @@ function CardPortfolio(props: any) {
   ];
 
   return (
-    <Link key={title} href={link ?? '#'} target="_blank" className="h-full">
+    <Link 
+      key={title} 
+      href={link ?? '#'} 
+      target="_blank" 
+      className="h-full"
+      onClick={() => trackPortfolioClick(title)}
+    >
       <div
         className="h-full cursor-pointer rounded-lg bg-[#1E2023] p-12 shadow-xl duration-300 hover:-translate-y-2 hover:bg-[#1E2023]/80 ">
         <div className="flex flex-col gap-5">

@@ -1,4 +1,12 @@
+'use client';
+
+import { trackDownloadClick } from '../../../../utils/gtm-events';
+
 function NavbarGettingStarted() {
+  const handleDownloadClick = () => {
+    trackDownloadClick('CV Rama Dwiyantara Perkasa');
+  };
+
   return (
     <div className="flex space-x-3 rtl:space-x-reverse md:order-2 md:space-x-0">
       <a
@@ -6,6 +14,7 @@ function NavbarGettingStarted() {
         href="https://drive.google.com/file/d/1DMtkbN90udMTAAH69kKb-dp-eseNCLyX/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={handleDownloadClick}
         className="bg-primary text-black hover:bg-primary/95 focus:ring-primary/20 dark:bg-primary/60 dark:hover:bg-primary dark:focus:ring-primary/hover:bg-primary/95 inline-flex content-center items-center gap-2 rounded-lg px-4  py-2 text-center text-sm font-medium text-white focus:outline-none focus:ring-4"
       >
         <svg
